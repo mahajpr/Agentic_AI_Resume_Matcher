@@ -87,5 +87,5 @@ if st.button("Analyze Resume", use_container_width=True):
                 st.divider()
 
                             
-                st.markdown("### 🧠 Final Recommendation")
+                st.markdown("### Final Recommendation")
                 st.info(result["final_recommendation"])
