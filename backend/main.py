@@ -51,15 +51,15 @@ def match_resume_agent(file_name: str, req: Job):
         "job_desc": req.query
     })
 
-    # ✅ Extract raw text only
+    
     raw_text = result.raw if hasattr(result, "raw") else str(result)
 
-    # ✅ Helper function
+    
     def extract(pattern, text):
         match = re.search(pattern, text, re.DOTALL)
         return match.group(1).strip() if match else "Not found"
 
-    # ✅ Extract sections
+    
     match_score = extract(r"Match score:\s*(.*?)\n", raw_text)
     matching_skills = extract(r"Matching skills:\s*(.*?)\n", raw_text)
     missing_skills = extract(r"Missing skills:\s*(.*?)\n", raw_text)
